@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pasarguard/node/backend/xray/api"
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/config"
+	"github.com/jellyendersoon/hexogate-node/backend/xray/api"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/config"
 )
 
 type Xray struct {

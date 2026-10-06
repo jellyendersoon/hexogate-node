@@ -1,13 +1,18 @@
-name: Build and Push Docker Image (All Branches)
+name: Build and Push Docker Image (Dev)
 
+# Builds a branch image only from the dev branch or on demand, so ordinary
+# feature-branch pushes do not spend Actions minutes on multi-arch builds.
 on:
   push:
-    branches: ['*']
+    branches:
+      - dev
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE: pasarguard/${{ github.event.repository.name }}:${{ github.ref_name }}
-  GHCR_IMAGE: ghcr.io/pasarguard/${{ github.event.repository.name }}:${{ github.ref_name }}
+  GHCR_IMAGE: ghcr.io/jellyendersoon/${{ github.event.repository.name }}:${{ github.ref_name }}
+  XRAY_REPO: ${{ vars.XRAY_REPO || 'XTLS/Xray-core' }}
+  XRAY_VERSION: ${{ vars.XRAY_VERSION || 'latest' }}
 
 jobs:
   build-and-push:
@@ -26,12 +31,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v4.6.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-  
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
@@ -42,8 +41,9 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: |
-            ${{env.GHCR_IMAGE}}
-            ${{env.IMAGE}}
+          tags: ${{ env.GHCR_IMAGE }}
+          build-args: |
+            XRAY_REPO=${{ env.XRAY_REPO }}
+            XRAY_VERSION=${{ env.XRAY_VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

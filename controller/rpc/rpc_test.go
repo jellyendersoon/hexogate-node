@@ -16,10 +16,10 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/config"
-	"github.com/pasarguard/node/controller"
-	"github.com/pasarguard/node/pkg/tlsutil"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/config"
+	"github.com/jellyendersoon/hexogate-node/controller"
+	"github.com/jellyendersoon/hexogate-node/pkg/tlsutil"
 )
 
 var (

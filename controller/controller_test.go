@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/pasarguard/node/config"
+	"github.com/jellyendersoon/hexogate-node/config"
 )
 
 func TestConnectCancelsPreviousStatsCollector(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/pasarguard/node/backend/xray/api"
+	"github.com/jellyendersoon/hexogate-node/backend/xray/api"
 )
 
 func TestConfigClonePreservesRuntimeClientsAndExclude(t *testing.T) {

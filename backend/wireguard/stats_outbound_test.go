@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/pasarguard/node/common"
-	pkgstats "github.com/pasarguard/node/pkg/stats"
+	"github.com/jellyendersoon/hexogate-node/common"
+	pkgstats "github.com/jellyendersoon/hexogate-node/pkg/stats"
 	"github.com/vishvananda/netlink"
 )
 

@@ -3,7 +3,7 @@ package rpc
 import (
 	"testing"
 
-	"github.com/pasarguard/node/backend"
+	"github.com/jellyendersoon/hexogate-node/backend"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

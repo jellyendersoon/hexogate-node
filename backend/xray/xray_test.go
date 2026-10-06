@@ -9,10 +9,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/config"
-	"github.com/pasarguard/node/pkg/fsutil"
-	"github.com/pasarguard/node/pkg/netutil"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/config"
+	"github.com/jellyendersoon/hexogate-node/pkg/fsutil"
+	"github.com/jellyendersoon/hexogate-node/pkg/netutil"
 )
 
 var (

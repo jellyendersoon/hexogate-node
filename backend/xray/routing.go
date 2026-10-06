@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/pasarguard/node/backend"
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/backend"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 // var _ asserts at compile time that *Xray satisfies backend.RoutingBackend.

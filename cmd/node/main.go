@@ -9,11 +9,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/pasarguard/node/config"
-	"github.com/pasarguard/node/controller"
-	"github.com/pasarguard/node/controller/rest"
-	"github.com/pasarguard/node/controller/rpc"
-	"github.com/pasarguard/node/pkg/tlsutil"
+	"github.com/jellyendersoon/hexogate-node/config"
+	"github.com/jellyendersoon/hexogate-node/controller"
+	"github.com/jellyendersoon/hexogate-node/controller/rest"
+	"github.com/jellyendersoon/hexogate-node/controller/rpc"
+	"github.com/jellyendersoon/hexogate-node/pkg/tlsutil"
 )
 
 func main() {
@@ -29,7 +29,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Printf("Starting Node: v%s", controller.NodeVersion)
+	log.Printf("Starting Hexogate Node: v%s", controller.NodeVersion)
 
 	var shutdownFunc func(ctx context.Context) error
 	var service controller.Service

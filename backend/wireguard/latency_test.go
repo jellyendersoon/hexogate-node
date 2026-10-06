@@ -3,7 +3,7 @@ package wireguard
 import (
 	"testing"
 
-	"github.com/pasarguard/node/config"
+	"github.com/jellyendersoon/hexogate-node/config"
 )
 
 func TestLatencyProbeInterfaceFallsBackToConfiguredInterface(t *testing.T) {

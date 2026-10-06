@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/pasarguard/node/pkg/stats"
+	"github.com/jellyendersoon/hexogate-node/pkg/stats"
 )
 
 const statsDeviceErrorLogInterval = time.Minute

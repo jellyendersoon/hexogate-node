@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/pasarguard/node/backend"
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/backend"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 // BuildUsersFromChunks orders chunked user payloads by their index and returns a single slice.

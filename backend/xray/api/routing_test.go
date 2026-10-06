@@ -3,7 +3,7 @@ package api
 import (
 	"testing"
 
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/common"
 	"github.com/xtls/xray-core/app/router"
 	routingCommand "github.com/xtls/xray-core/app/router/command"
 	xnet "github.com/xtls/xray-core/common/net"

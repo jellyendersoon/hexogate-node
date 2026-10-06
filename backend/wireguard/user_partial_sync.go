@@ -3,7 +3,7 @@ package wireguard
 import (
 	"fmt"
 
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 // buildExistingPeersSubsetForTouched returns the subset of store peers whose email

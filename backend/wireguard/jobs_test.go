@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pasarguard/node/config"
-	pkgstats "github.com/pasarguard/node/pkg/stats"
+	"github.com/jellyendersoon/hexogate-node/config"
+	pkgstats "github.com/jellyendersoon/hexogate-node/pkg/stats"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
 

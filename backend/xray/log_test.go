@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	nodeLogger "github.com/pasarguard/node/logger"
+	nodeLogger "github.com/jellyendersoon/hexogate-node/logger"
 )
 
 func TestDetectLogType(t *testing.T) {

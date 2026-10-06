@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pasarguard/node/backend/xray/api"
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/backend/xray/api"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 func setupUserAccount(user *common.User) (api.ProxySettings, error) {

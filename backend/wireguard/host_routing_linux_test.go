@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pasarguard/node/config"
+	"github.com/jellyendersoon/hexogate-node/config"
 )
 
 func TestNFTMasqueradeRuleArgs(t *testing.T) {

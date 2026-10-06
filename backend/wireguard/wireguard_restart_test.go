@@ -5,8 +5,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/pasarguard/node/common"
-	nodeconfig "github.com/pasarguard/node/config"
+	"github.com/jellyendersoon/hexogate-node/common"
+	nodeconfig "github.com/jellyendersoon/hexogate-node/config"
 	"github.com/vishvananda/netlink"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )

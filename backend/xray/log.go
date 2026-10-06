@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	nodeLogger "github.com/pasarguard/node/logger"
+	nodeLogger "github.com/jellyendersoon/hexogate-node/logger"
 )
 
 func isAccessLog(log string) bool {

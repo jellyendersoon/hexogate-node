@@ -10,8 +10,8 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 
-	"github.com/pasarguard/node/config"
-	"github.com/pasarguard/node/controller"
+	"github.com/jellyendersoon/hexogate-node/config"
+	"github.com/jellyendersoon/hexogate-node/controller"
 )
 
 func New(cfg *config.Config) *Service {

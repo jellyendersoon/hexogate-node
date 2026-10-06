@@ -2260,7 +2260,7 @@ const file_common_service_proto_rawDesc = "" +
 	"\tTestRoute\x12\x19.service.TestRouteRequest\x1a\x14.service.RouteResult\"\x00\x12B\n" +
 	"\x0eAddRoutingRule\x12\x1e.service.AddRoutingRuleRequest\x1a\x0e.service.Empty\"\x00\x12H\n" +
 	"\x11RemoveRoutingRule\x12!.service.RemoveRoutingRuleRequest\x1a\x0e.service.Empty\"\x00\x12R\n" +
-	"\x16OverrideBalancerTarget\x12&.service.OverrideBalancerTargetRequest\x1a\x0e.service.Empty\"\x00B#Z!github.com/pasarguard/node/commonb\x06proto3"
+	"\x16OverrideBalancerTarget\x12&.service.OverrideBalancerTargetRequest\x1a\x0e.service.Empty\"\x00B0Z.github.com/jellyendersoon/hexogate-node/commonb\x06proto3"
 
 var (
 	file_common_service_proto_rawDescOnce sync.Once

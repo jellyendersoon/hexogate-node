@@ -5,8 +5,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/pasarguard/node/backend/xray/api"
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/backend/xray/api"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 func TestAccountForAPIUsesInboundFlowOverrideWhenPresent(t *testing.T) {

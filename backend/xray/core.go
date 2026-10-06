@@ -15,7 +15,7 @@ import (
 	"sync"
 	"time"
 
-	nodeLogger "github.com/pasarguard/node/logger"
+	nodeLogger "github.com/jellyendersoon/hexogate-node/logger"
 )
 
 type Core struct {

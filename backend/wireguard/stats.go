@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/pkg/stats"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/pkg/stats"
 )
 
 const onlineActivityThreshold = 45 * time.Second

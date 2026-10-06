@@ -1,49 +1,53 @@
-# PasarGuard-Node
-<p align="center">
-    <a href="#">
-        <img src="https://img.shields.io/github/actions/workflow/status/PasarGuard/node/docker-build.yml?style=flat-square" />
-    </a>
-    <a href="https://hub.docker.com/r/pasarguard/node" target="_blank">
-        <img src="https://img.shields.io/docker/pulls/pasarguard/node?style=flat-square&logo=docker" />
-    </a>
-    <a href="#">
-        <img src="https://img.shields.io/github/license/PasarGuard/node?style=flat-square" />
-    </a>
-    <a href="#">
-        <img src="https://img.shields.io/github/stars/PasarGuard/node?style=social" />
-    </a>
-</p>
+# Hexogate Node
 
-# Documentation
-You can find a full guide in docs https://docs.pasarguard.org/en/node/
+The node agent for the [Hexogate panel](https://github.com/jellyendersoon/hexogatepanel). It runs the Xray or WireGuard core on a server and lets the panel manage it over gRPC or REST.
 
-# One-Click Installation (Recommended)
-The easiest way to install PasarGuard Node is using our automated installation script:
+Hexogate Node is a fork of the PasarGuard node and stays protocol-compatible with it: the gRPC service (`service.NodeService`), the REST endpoints and the reported node version are unchanged, so the panel and existing nodes keep working during a rollout.
+
+## Install with Docker
 
 ```bash
-sudo bash -c "$(curl -sL https://github.com/PasarGuard/scripts/raw/main/pg-node.sh)" @ install
+sudo mkdir -p /var/lib/pg-node/certs
+# put ssl_cert.pem and ssl_key.pem in /var/lib/pg-node/certs, then:
+curl -fsSL -o docker-compose.yml https://raw.githubusercontent.com/jellyendersoon/hexogate-node/main/docker-compose.yml
+# set API_KEY (any UUID) in docker-compose.yml, then:
+docker compose up -d
 ```
 
-# Donation
-You can help PasarGuard team with your donations, [Click Here](https://donate.pasarguard.org/)
+The image is `ghcr.io/jellyendersoon/hexogate-node`. Data and certificates stay under `/var/lib/pg-node`, the path existing nodes already use, so a node can switch images without moving files.
 
-# Contributors
+## Choosing the Xray core
 
-We ❤️‍🔥 contributors! If you'd like to contribute, please check out our [Contributing Guidelines](CONTRIBUTING.md) and feel free to submit a pull request or open an issue. We also welcome you to join our [Telegram](https://t.me/Pasar_Guard) group for either support or contributing guidance.
+The image bundles an Xray build chosen at build time:
 
-Check [open issues](https://github.com/PasarGuard/node/issues) to help the progress of this project.
+| Setting | Default | Purpose |
+|---|---|---|
+| `XRAY_REPO` | `XTLS/Xray-core` | GitHub repository whose releases publish `Xray-linux-<arch>.zip` |
+| `XRAY_VERSION` | `latest` | Release tag to bundle, for example `v26.3.27` |
 
-## Stargazers over time
-[![Stargazers over time](https://starchart.cc/PasarGuard/node.svg?variant=adaptive)](https://starchart.cc/PasarGuard/node)
-                    
-<p align="center">
-Thanks to the all contributors who have helped improve PasarGuard Node:
-</p>
-<p align="center">
-<a href="https://github.com/PasarGuard/node/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=PasarGuard/node" />
-</a>
-</p>
-<p align="center">
-  Made with <a rel="noopener noreferrer" target="_blank" href="https://contrib.rocks">contrib.rocks</a>
-</p>
+To ship your own Xray fork, set the repository variables `XRAY_REPO` and `XRAY_VERSION` in this repo's GitHub settings (Settings, Secrets and variables, Actions, Variables). The release and dev image workflows pass them to the build. Locally:
+
+```bash
+docker build --build-arg XRAY_REPO=<owner>/<xray-fork> --build-arg XRAY_VERSION=<tag> -t hexogate-node .
+```
+
+On a bare host, `scripts/install_xray.sh` installs the same way (`XRAY_REPO=... XRAY_VERSION=... sudo -E bash scripts/install_xray.sh`).
+
+## Configuration
+
+See `.env.example` for every option. Environment variable names are unchanged from upstream (`SERVICE_PORT`, `API_KEY`, `PG_NODE_WG_*` and so on) so existing compose files keep working.
+
+## Development
+
+```bash
+make deps
+make install_xray            # or: bash scripts/install_xray.sh
+mkdir -p certs && make generate_server_cert && make generate_client_cert
+go test ./...
+```
+
+Regenerate the gRPC code after editing `common/service.proto` with `make generate_grpc_code` (protoc 34.1, protoc-gen-go v1.36.11, protoc-gen-go-grpc v1.6.1).
+
+## License
+
+AGPL-3.0, inherited from the upstream project. See [LICENSE](LICENSE).

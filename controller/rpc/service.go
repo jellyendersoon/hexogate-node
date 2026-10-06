@@ -7,9 +7,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/config"
-	"github.com/pasarguard/node/controller"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/config"
+	"github.com/jellyendersoon/hexogate-node/controller"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )

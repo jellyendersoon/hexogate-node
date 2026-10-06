@@ -1,4 +1,4 @@
-NAME = pasarguard-node-$(GOOS)-$(GOARCH)
+NAME = hexogate-node-$(GOOS)-$(GOARCH)
 
 LDFLAGS = -s -w -buildid=
 PARAMS = -trimpath -ldflags "$(LDFLAGS)" -v
@@ -95,24 +95,24 @@ ifeq ($(UNAME_S),Linux)
 	# Debian/Ubuntu
 	if [ "$(DISTRO)" = "debian" ] || [ "$(DISTRO)" = "ubuntu" ]; then \
 		sudo apt-get update && \
-		sudo apt-get install -y curl bash; \
+		sudo apt-get install -y curl bash unzip; \
 	fi
 
 	# Alpine Linux
 	if [ "$(DISTRO)" = "alpine" ]; then \
 		apk update && \
-		apk add --no-cache curl bash; \
+		apk add --no-cache curl bash unzip; \
 	fi
 
 	# CentOS/RHEL/Fedora
 	if [ "$(DISTRO)" = "centos" ] || [ "$(DISTRO)" = "rhel" ] || [ "$(DISTRO)" = "fedora" ]; then \
 		sudo yum update -y && \
-		sudo yum install -y curl bash; \
+		sudo yum install -y curl bash unzip; \
 	fi
 
 	# Arch Linux
 	if [ "$(DISTRO)" = "arch" ]; then \
-		sudo pacman -Sy --noconfirm curl bash; \
+		sudo pacman -Sy --noconfirm curl bash unzip; \
 	fi
 else
 	@echo "Unsupported operating system: $(UNAME_S)"
@@ -121,13 +121,13 @@ endif
 
 install_xray: update_os
 ifeq ($(UNAME_S),Linux)
-	# Debian/Ubuntu, CentOS, Fedora, Arch → Use sudo
+	# XRAY_REPO / XRAY_VERSION select the core (defaults: XTLS/Xray-core, latest).
 	if [ "$(DISTRO)" = "debian" ] || [ "$(DISTRO)" = "ubuntu" ] || \
 	   [ "$(DISTRO)" = "centos" ] || [ "$(DISTRO)" = "rhel" ] || [ "$(DISTRO)" = "fedora" ] || \
 	   [ "$(DISTRO)" = "arch" ]; then \
-		curl -L https://github.com/PasarGuard/scripts/raw/main/install_core.sh | sudo bash -s -- $(XRAY_INSTALL_ARGS); \
+		sudo -E bash ./scripts/install_xray.sh $(XRAY_INSTALL_ARGS); \
 	else \
-		curl -L https://github.com/PasarGuard/scripts/raw/main/install_core.sh | bash -s -- $(XRAY_INSTALL_ARGS); \
+		bash ./scripts/install_xray.sh $(XRAY_INSTALL_ARGS); \
 	fi
 
 else

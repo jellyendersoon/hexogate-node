@@ -1,8 +1,7 @@
 services:
   node:
-    image: pasarguard/node:latest
-    # for situations, you don't have access to docker hub use 👇
-    # image: ghcr.io/pasarguard/node:latest
+    image: ghcr.io/jellyendersoon/hexogate-node:latest
+    container_name: hexogate-node
     restart: always
     network_mode: host
     cap_add:

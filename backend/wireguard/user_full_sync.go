@@ -3,7 +3,7 @@ package wireguard
 import (
 	"fmt"
 
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 func (wg *WireGuard) syncUsersFull(users []*common.User) error {

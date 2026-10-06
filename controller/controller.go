@@ -9,13 +9,13 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/pasarguard/node/backend"
-	"github.com/pasarguard/node/backend/wireguard"
-	"github.com/pasarguard/node/backend/xray"
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/config"
-	"github.com/pasarguard/node/pkg/netutil"
-	"github.com/pasarguard/node/pkg/sysstats"
+	"github.com/jellyendersoon/hexogate-node/backend"
+	"github.com/jellyendersoon/hexogate-node/backend/wireguard"
+	"github.com/jellyendersoon/hexogate-node/backend/xray"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/config"
+	"github.com/jellyendersoon/hexogate-node/pkg/netutil"
+	"github.com/jellyendersoon/hexogate-node/pkg/sysstats"
 )
 
 const NodeVersion = "0.5.4"

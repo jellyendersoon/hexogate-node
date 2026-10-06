@@ -10,7 +10,7 @@ import (
 	"github.com/shirou/gopsutil/v4/mem"
 	"github.com/shirou/gopsutil/v4/net"
 
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 const sampleInterval = time.Second

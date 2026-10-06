@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pasarguard/node/config"
+	"github.com/jellyendersoon/hexogate-node/config"
 )
 
 const (

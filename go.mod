@@ -1,4 +1,4 @@
-module github.com/pasarguard/node
+module github.com/jellyendersoon/hexogate-node
 
 go 1.26.3
 

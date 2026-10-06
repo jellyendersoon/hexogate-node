@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/pkg/stats"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/pkg/stats"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
 

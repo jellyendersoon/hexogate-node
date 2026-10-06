@@ -3,7 +3,7 @@ package stats
 import (
 	"sync"
 
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 // InterfaceCountersTracker tracks delta and reset state for interface-level RX/TX counters.

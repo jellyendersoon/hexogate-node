@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 // Entry tracks stats for one user (map key = public key)

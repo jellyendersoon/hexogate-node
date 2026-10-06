@@ -3,8 +3,8 @@ package rpc
 import (
 	"context"
 
-	"github.com/pasarguard/node/backend"
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/backend"
+	"github.com/jellyendersoon/hexogate-node/common"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

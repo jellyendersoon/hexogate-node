@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 // SyncUser synchronizes a single user to the WireGuard interface.

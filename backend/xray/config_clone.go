@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/pasarguard/node/backend/xray/api"
+	"github.com/jellyendersoon/hexogate-node/backend/xray/api"
 )
 
 func cloneAccount(account api.Account) api.Account {

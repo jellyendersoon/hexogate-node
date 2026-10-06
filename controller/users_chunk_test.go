@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pasarguard/node/backend"
-	"github.com/pasarguard/node/common"
+	"github.com/jellyendersoon/hexogate-node/backend"
+	"github.com/jellyendersoon/hexogate-node/common"
 )
 
 func TestBuildUsersFromChunksOrdersByIndex(t *testing.T) {

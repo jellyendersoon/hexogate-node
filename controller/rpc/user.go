@@ -10,8 +10,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/controller"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/controller"
 )
 
 func (s *Service) SyncUser(stream grpc.ClientStreamingServer[common.User, common.Empty]) error {

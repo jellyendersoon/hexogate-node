@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pasarguard/node/common"
-	"github.com/pasarguard/node/config"
+	"github.com/jellyendersoon/hexogate-node/common"
+	"github.com/jellyendersoon/hexogate-node/config"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
 
