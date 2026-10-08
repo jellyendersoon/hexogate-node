@@ -33,6 +33,22 @@ docker build --build-arg XRAY_REPO=<owner>/<xray-fork> --build-arg XRAY_VERSION=
 
 On a bare host, `scripts/install_xray.sh` installs the same way (`XRAY_REPO=... XRAY_VERSION=... sudo -E bash scripts/install_xray.sh`).
 
+### Shipping a core that is not published as a GitHub release
+
+If your Xray build exists only as a binary (for example the `hexogate.5` core the fleet runs today), use one of these. Both refuse to build unless the binary matches the sha256 you give.
+
+- **Pinned URL.** Host the binary or an Xray-style zip anywhere the build can reach, then build with `--build-arg XRAY_URL=<url> --build-arg XRAY_SHA256=<sha256 of the xray binary>`. A bare binary gets its `geoip.dat`/`geosite.dat` from the regular `XRAY_REPO` release.
+- **Local overlay, no upload.** On a host that already has the binary, layer it onto the published image:
+
+  ```bash
+  cp /path/to/xray-26.3.27-hexogate.5 ./xray
+  docker build -f Dockerfile.local-core \
+    --build-arg XRAY_SHA256="$(sha256sum ./xray | cut -d' ' -f1)" \
+    -t hexogate-node:hexogate.5 .
+  ```
+
+  Point the node's compose file at `hexogate-node:hexogate.5` and drop the xray bind mount.
+
 ## Configuration
 
 See `.env.example` for every option. Environment variable names are unchanged from upstream (`SERVICE_PORT`, `API_KEY`, `PG_NODE_WG_*` and so on) so existing compose files keep working.

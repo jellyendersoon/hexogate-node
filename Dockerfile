@@ -5,6 +5,9 @@ ARG TARGETARCH
 # Xray core source: point XRAY_REPO at your own Xray fork to ship the Hexogate core.
 ARG XRAY_REPO=XTLS/Xray-core
 ARG XRAY_VERSION=latest
+# Or a direct zip/binary URL, optionally pinned by sha256 of the xray binary.
+ARG XRAY_URL=""
+ARG XRAY_SHA256=""
 
 RUN apk update && apk add --no-cache make
 
@@ -15,7 +18,7 @@ RUN go mod download
 
 COPY . .
 RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} make NAME=main build
-RUN XRAY_REPO=${XRAY_REPO} XRAY_VERSION=${XRAY_VERSION} GOOS=${TARGETOS} GOARCH=${TARGETARCH} make install_xray
+RUN XRAY_REPO=${XRAY_REPO} XRAY_VERSION=${XRAY_VERSION} XRAY_URL=${XRAY_URL} XRAY_SHA256=${XRAY_SHA256} GOOS=${TARGETOS} GOARCH=${TARGETARCH} make install_xray
 
 FROM alpine:latest
 
